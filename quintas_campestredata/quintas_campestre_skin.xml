@@ -759,7 +759,7 @@
 										<spot name="spotmap64" posX="0.564103007" posY="0.197628006" heading="0" desc="spotmap64_tooltip" descType="tooltip" groupName="" isScene="true" planar="false" scene="pano32" jsClick="spotmap64ActionSpotFloorPlan">
 											<icon url="spots/hotspot_plan_user_defaultmap1.png" iconWidth="32" iconHeight="32" iconAnchor="center" />
 										</spot>
-										<spot name="spotmap318" posX="0.970501482" posY="0.48519361" heading="0" desc="spotmap318_tooltip" descType="tooltip" groupName="" isScene="true" planar="false" scene="pano22" jsClick="spotmap318ActionSpotFloorPlan">
+										<spot name="spotmap318" posX="0.970501006" posY="0.485193998" heading="0" desc="spotmap318_tooltip" descType="tooltip" groupName="" isScene="true" planar="false" scene="pano22" jsClick="spotmap318ActionSpotFloorPlan">
 											<icon url="spots/hotspot_plan_user_defaultmap1.png" iconWidth="32" iconHeight="32" iconAnchor="center" />
 										</spot>
 							</floorplanItem>
@@ -789,7 +789,7 @@
 										<spot name="spotmap70" posX="0.479487002" posY="0.648221016" heading="0" desc="spotmap70_tooltip" descType="tooltip" groupName="" isScene="true" planar="false" scene="pano36" jsClick="spotmap70ActionSpotFloorPlan">
 											<icon url="spots/hotspot_plan_user_defaultmap1.png" iconWidth="32" iconHeight="32" iconAnchor="center" />
 										</spot>
-										<spot name="spotmap319" posX="0.971976399" posY="0.505694747" heading="0" desc="spotmap319_tooltip" descType="tooltip" groupName="" isScene="true" planar="false" scene="pano22" jsClick="spotmap319ActionSpotFloorPlan">
+										<spot name="spotmap319" posX="0.971975982" posY="0.505694985" heading="0" desc="spotmap319_tooltip" descType="tooltip" groupName="" isScene="true" planar="false" scene="pano22" jsClick="spotmap319ActionSpotFloorPlan">
 											<icon url="spots/hotspot_plan_user_defaultmap1.png" iconWidth="32" iconHeight="32" iconAnchor="center" />
 										</spot>
 							</floorplanItem>
@@ -801,19 +801,19 @@
 								url="floorplan/plano_piso3_3_panogroup53.png" 
 								title="panogroup53_floor_title"
 								heading="0">
-										<spot name="spotmap72" posX="0.317577541" posY="0.717539847" heading="0" desc="spotmap72_tooltip" descType="tooltip" groupName="" isScene="true" planar="false" scene="pano37" jsClick="spotmap72ActionSpotFloorPlan">
+										<spot name="spotmap72" posX="0.317577988" posY="0.717540026" heading="0" desc="spotmap72_tooltip" descType="tooltip" groupName="" isScene="true" planar="false" scene="pano37" jsClick="spotmap72ActionSpotFloorPlan">
 											<icon url="spots/hotspot_plan_user_defaultmap1.png" iconWidth="32" iconHeight="32" iconAnchor="center" />
 										</spot>
-										<spot name="spotmap73" posX="0.57902509" posY="0.569476068" heading="0" desc="spotmap73_tooltip" descType="tooltip" groupName="" isScene="true" planar="false" scene="pano48" jsClick="spotmap73ActionSpotFloorPlan">
+										<spot name="spotmap73" posX="0.579024971" posY="0.569476008" heading="0" desc="spotmap73_tooltip" descType="tooltip" groupName="" isScene="true" planar="false" scene="pano48" jsClick="spotmap73ActionSpotFloorPlan">
 											<icon url="spots/hotspot_plan_user_defaultmap1.png" iconWidth="32" iconHeight="32" iconAnchor="center" />
 										</spot>
 										<spot name="spotmap74" posX="0.569230974" posY="0.316206008" heading="0" desc="spotmap74_tooltip" descType="tooltip" groupName="" isScene="true" planar="false" scene="pano49" jsClick="spotmap74ActionSpotFloorPlan">
 											<icon url="spots/hotspot_plan_user_defaultmap1.png" iconWidth="32" iconHeight="32" iconAnchor="center" />
 										</spot>
-										<spot name="spotmap314" posX="0.319054663" posY="0.530751705" heading="0" desc="spotmap314_tooltip" descType="tooltip" groupName="" isScene="true" planar="false" scene="pano38" jsClick="spotmap314ActionSpotFloorPlan">
+										<spot name="spotmap314" posX="0.319054991" posY="0.530752003" heading="0" desc="spotmap314_tooltip" descType="tooltip" groupName="" isScene="true" planar="false" scene="pano38" jsClick="spotmap314ActionSpotFloorPlan">
 											<icon url="spots/hotspot_plan_user_defaultmap1.png" iconWidth="32" iconHeight="32" iconAnchor="center" />
 										</spot>
-										<spot name="spotmap320" posX="0.970501482" posY="0.492027342" heading="0" desc="spotmap320_tooltip" descType="tooltip" groupName="" isScene="true" planar="false" scene="pano22" jsClick="spotmap320ActionSpotFloorPlan">
+										<spot name="spotmap320" posX="0.970501006" posY="0.492027014" heading="0" desc="spotmap320_tooltip" descType="tooltip" groupName="" isScene="true" planar="false" scene="pano22" jsClick="spotmap320ActionSpotFloorPlan">
 											<icon url="spots/hotspot_plan_user_defaultmap1.png" iconWidth="32" iconHeight="32" iconAnchor="center" />
 										</spot>
 							</floorplanItem>
@@ -1165,7 +1165,7 @@
          keep="true"
          type="container"
          bgcolor="0xa0a0a0"
-         bgalpha="0.39215686274509803"
+         bgalpha="0.40000000000000002"
          align="top"
          x="0"
          y="0"
@@ -1278,34 +1278,6 @@
          "
   />
 
-  <action name="enableGyroscope">
-    changeGyroscopeState(true);
-  </action>
-  <action name="disableGyroscope">
-    changeGyroscopeState(false);
-  </action>
-
-
-<action name="setViewArchitectural">
-	if(normalViewActivated,stopSetViewTweens(););
-	if(current_view_isflat === true,
-		setViewNonFlat(VFOV);
-	);
-	setViewArchitecturalComplete();
-</action>
-
-<action name="setViewArchitecturalComplete">
-	set(view.fovmax, get(panoview.fovmax));
-	set(view.fisheyefovlink, 0.5);
-	tween(view.architectural, 1.0, distance(1.0, 0.45));
-	tween(view.pannini, 0.0, distance(1.0, 0.45), easeOutQuad, if(panniniViewActivated,restoreViewFromPannini();););
-	tween(view.fisheye, 0.0, distance(1.0, 0.45), easeOutQuad, 
-		set(view.stereographic,false);
-		tween(view.vlookat, get(panoview.v), distance(90, 0.45));
-	);
-	tween(view.fov, get(panoview.fov), distance(50, 0.45));
-</action>
-
   <!-- Fullscreen Management -->
   <action name="exitFullScreen" devices="fullscreensupport">set(tour_fullscreen,false);js(setFullscreen(false));</action>
   <action name="enterFullScreen" devices="fullscreensupport">set(tour_fullscreen,true);js(setFullscreen(true));</action>
@@ -1322,40 +1294,6 @@
   <action name="enterFullScreenFallback">set(fullscreen,true);</action>
   
   <action name="resizeFullScreenEvent">delayedcall(0,updatescreen(););</action>
-
-<action name="setViewNormal">
-	stopSetViewTweens();
-	if(current_view_isflat === true,
-		setViewNonFlat(VFOV);
-	);
-	setViewNormalComplete();
-</action>
-
-<action name="setViewNormalComplete">
-	set(view.fisheyefovlink, 0.5);
-	set(view.fovmax, get(panoview.fovmax));
-	tween(view.architectural, 0.0, distance(1.0, 0.45));
-	tween(view.pannini, 0.0, distance(1.0, 0.45), easeOutQuad, if(panniniViewActivated,restoreViewFromPannini();););
-	tween(view.vlookat, get(panoview.v), distance(90, 0.45));
-	tween(view.fov, get(panoview.fov), distance(50, 0.45));
-	tween(view.fisheye, 0.0, distance(1.0, 0.45),
-		set(view.stereographic,false);
-	);
-</action>
-
-<krpano normalViewActivated="true" />
-<action name="stopSetViewTweens">
-	stoptween(view.fov);
-	stoptween(view.vlookat);
-	stoptween(view.fisheye);
-	stoptween(view.architectural);
-	stoptween(view.pannini);
-</action>
-
-  <!-- FLOORPLAN -->
-  <action name="hideFloorplan">set(tour_displayfloorplan, false);events.dispatch(onhidetourfloorplan);</action>
-  <action name="showFloorplan">set(tour_displayfloorplan, true); events.dispatch(onshowtourfloorplan);</action>
-
 
 <action name="setViewLittlePlanet">
 	set(sceneisfull360, false);
@@ -1395,6 +1333,68 @@
   <!-- Hide / Show Controls -->
   <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
   <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
+
+
+<action name="setViewNormal">
+	stopSetViewTweens();
+	if(current_view_isflat === true,
+		setViewNonFlat(VFOV);
+	);
+	setViewNormalComplete();
+</action>
+
+<action name="setViewNormalComplete">
+	set(view.fisheyefovlink, 0.5);
+	set(view.fovmax, get(panoview.fovmax));
+	tween(view.architectural, 0.0, distance(1.0, 0.45));
+	tween(view.pannini, 0.0, distance(1.0, 0.45), easeOutQuad, if(panniniViewActivated,restoreViewFromPannini();););
+	tween(view.vlookat, get(panoview.v), distance(90, 0.45));
+	tween(view.fov, get(panoview.fov), distance(50, 0.45));
+	tween(view.fisheye, 0.0, distance(1.0, 0.45),
+		set(view.stereographic,false);
+	);
+</action>
+
+<krpano normalViewActivated="true" />
+<action name="stopSetViewTweens">
+	stoptween(view.fov);
+	stoptween(view.vlookat);
+	stoptween(view.fisheye);
+	stoptween(view.architectural);
+	stoptween(view.pannini);
+</action>
+
+<action name="setViewArchitectural">
+	if(normalViewActivated,stopSetViewTweens(););
+	if(current_view_isflat === true,
+		setViewNonFlat(VFOV);
+	);
+	setViewArchitecturalComplete();
+</action>
+
+<action name="setViewArchitecturalComplete">
+	set(view.fovmax, get(panoview.fovmax));
+	set(view.fisheyefovlink, 0.5);
+	tween(view.architectural, 1.0, distance(1.0, 0.45));
+	tween(view.pannini, 0.0, distance(1.0, 0.45), easeOutQuad, if(panniniViewActivated,restoreViewFromPannini();););
+	tween(view.fisheye, 0.0, distance(1.0, 0.45), easeOutQuad, 
+		set(view.stereographic,false);
+		tween(view.vlookat, get(panoview.v), distance(90, 0.45));
+	);
+	tween(view.fov, get(panoview.fov), distance(50, 0.45));
+</action>
+
+  <action name="enableGyroscope">
+    changeGyroscopeState(true);
+  </action>
+  <action name="disableGyroscope">
+    changeGyroscopeState(false);
+  </action>
+
+
+  <!-- FLOORPLAN -->
+  <action name="hideFloorplan">set(tour_displayfloorplan, false);events.dispatch(onhidetourfloorplan);</action>
+  <action name="showFloorplan">set(tour_displayfloorplan, true); events.dispatch(onshowtourfloorplan);</action>
 
 
 </krpano>

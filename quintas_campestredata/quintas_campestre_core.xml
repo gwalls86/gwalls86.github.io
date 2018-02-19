@@ -6,7 +6,7 @@
         tour_soundsvolume="100" 
         tour_autotourenabled="false"
         tour_autorotateenabled="false"
-        tour_controlmodemousetype="moveto"
+        tour_controlmodemousetype="drag"
         tour_controlmodetouchtype="drag"
         tour_fullscreen="false"
         tour_displaymap="false"
@@ -30,7 +30,7 @@
   </action>
 
   <!-- Control Mode Management -->
-  <control mouse="moveto" touch="drag" />
+  <control mouse="drag" touch="drag" />
   <action name="setControlModeDragTo">setControlMode(drag);</action>
   <action name="setControlModeMoveTo">setControlMode(moveto);</action>
   <action name="setControlMode">
@@ -174,12 +174,12 @@
   </action>
   <action name="tweennormalview">
     hideTooltip();
-    tween(view.fovmax, get(panoview.fovmax), 5, easeoutquad);
-    tween(view.hlookat,  get(panoview.h), 5, easeoutquad);
-    tween(view.vlookat, get(panoview.v), 5, easeoutquad);
-    if(panoview.fov LE view.fov, tween(view.fov, get(panoview.fov), 5, easeoutquad); );
-    tween(view.pannini, 0.0, 5, easeoutquad);
-    tween(view.fisheye, 0.0, 5, easeoutquad, 
+    tween(view.fovmax, get(panoview.fovmax), 4, easeoutquad);
+    tween(view.hlookat,  get(panoview.h), 4, easeoutquad);
+    tween(view.vlookat, get(panoview.v), 4, easeoutquad);
+    if(panoview.fov LE view.fov, tween(view.fov, get(panoview.fov), 4, easeoutquad); );
+    tween(view.pannini, 0.0, 4, easeoutquad);
+    tween(view.fisheye, 0.0, 4, easeoutquad, 
       set(view.architectural, 0.0);
       set(view.stereographic, false);
       set(view.fisheyefovlink, 0.5);

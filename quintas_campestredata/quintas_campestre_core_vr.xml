@@ -166,12 +166,12 @@
   </action>
   <action name="tweennormalview">
     hideTooltip();
-    tween(view.fovmax, get(panoview.fovmax), 5, easeoutquad);
-    tween(view.hlookat,  get(panoview.h), 5, easeoutquad);
-    tween(view.vlookat, get(panoview.v), 5, easeoutquad);
-    if(panoview.fov LE view.fov, tween(view.fov, get(panoview.fov), 5, easeoutquad); );
-    tween(view.pannini, 0.0, 5, easeoutquad);
-    tween(view.fisheye, 0.0, 5, easeoutquad, 
+    tween(view.fovmax, get(panoview.fovmax), 4, easeoutquad);
+    tween(view.hlookat,  get(panoview.h), 4, easeoutquad);
+    tween(view.vlookat, get(panoview.v), 4, easeoutquad);
+    if(panoview.fov LE view.fov, tween(view.fov, get(panoview.fov), 4, easeoutquad); );
+    tween(view.pannini, 0.0, 4, easeoutquad);
+    tween(view.fisheye, 0.0, 4, easeoutquad, 
       set(view.architectural, 0.0);
       set(view.stereographic, false);
       set(view.fisheyefovlink, 0.5);
