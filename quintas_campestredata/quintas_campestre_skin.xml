@@ -37,17 +37,6 @@
 
 
 <!-- ********** -->
-<!-- Doble click -->
-<!-- id : doubleclick -->
-<!-- ********** -->
-
-  <plugin name="doubleclick" url.flash="%FIRSTXML%/graphics/doubleclick/fieldofview_dc.swf" url.html5="%FIRSTXML%/graphics/doubleclick/dctouch.min.js" keep="true" ondblclick="doubleclick_ondoubleclick();"/>
-  <action name="doubleclick_ondoubleclick">switchFullscreen();
-
-
-  </action>
-
-<!-- ********** -->
 <!-- Menú contextual -->
 <!-- id : contextmenu -->
 <!-- ********** -->
@@ -103,6 +92,17 @@
      ,
       set(contextmenu.item[fullscreenentry].visible, false);
     );
+  </action>
+
+<!-- ********** -->
+<!-- Doble click -->
+<!-- id : doubleclick -->
+<!-- ********** -->
+
+  <plugin name="doubleclick" url.flash="%FIRSTXML%/graphics/doubleclick/fieldofview_dc.swf" url.html5="%FIRSTXML%/graphics/doubleclick/dctouch.min.js" keep="true" ondblclick="doubleclick_ondoubleclick();"/>
+  <action name="doubleclick_ondoubleclick">switchFullscreen();
+
+
   </action>
 
 <!-- ********** -->
@@ -1278,6 +1278,40 @@
          "
   />
 
+<action name="setViewNormal">
+	stopSetViewTweens();
+	if(current_view_isflat === true,
+		setViewNonFlat(VFOV);
+	);
+	setViewNormalComplete();
+</action>
+
+<action name="setViewNormalComplete">
+	set(view.fisheyefovlink, 0.5);
+	set(view.fovmax, get(panoview.fovmax));
+	tween(view.architectural, 0.0, distance(1.0, 0.45));
+	tween(view.pannini, 0.0, distance(1.0, 0.45), easeOutQuad, if(panniniViewActivated,restoreViewFromPannini();););
+	tween(view.vlookat, get(panoview.v), distance(90, 0.45));
+	tween(view.fov, get(panoview.fov), distance(50, 0.45));
+	tween(view.fisheye, 0.0, distance(1.0, 0.45),
+		set(view.stereographic,false);
+	);
+</action>
+
+<krpano normalViewActivated="true" />
+<action name="stopSetViewTweens">
+	stoptween(view.fov);
+	stoptween(view.vlookat);
+	stoptween(view.fisheye);
+	stoptween(view.architectural);
+	stoptween(view.pannini);
+</action>
+
+  <!-- Hide / Show Controls -->
+  <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
+  <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
+
+
   <!-- Fullscreen Management -->
   <action name="exitFullScreen" devices="fullscreensupport">set(tour_fullscreen,false);js(setFullscreen(false));</action>
   <action name="enterFullScreen" devices="fullscreensupport">set(tour_fullscreen,true);js(setFullscreen(true));</action>
@@ -1294,6 +1328,14 @@
   <action name="enterFullScreenFallback">set(fullscreen,true);</action>
   
   <action name="resizeFullScreenEvent">delayedcall(0,updatescreen(););</action>
+
+  <action name="enableGyroscope">
+    changeGyroscopeState(true);
+  </action>
+  <action name="disableGyroscope">
+    changeGyroscopeState(false);
+  </action>
+
 
 <action name="setViewLittlePlanet">
 	set(sceneisfull360, false);
@@ -1330,39 +1372,10 @@
 	tween(view.fov, 150, distance(179, 0.75));
 </action>
 
-  <!-- Hide / Show Controls -->
-  <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
-  <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
+  <!-- FLOORPLAN -->
+  <action name="hideFloorplan">set(tour_displayfloorplan, false);events.dispatch(onhidetourfloorplan);</action>
+  <action name="showFloorplan">set(tour_displayfloorplan, true); events.dispatch(onshowtourfloorplan);</action>
 
-
-<action name="setViewNormal">
-	stopSetViewTweens();
-	if(current_view_isflat === true,
-		setViewNonFlat(VFOV);
-	);
-	setViewNormalComplete();
-</action>
-
-<action name="setViewNormalComplete">
-	set(view.fisheyefovlink, 0.5);
-	set(view.fovmax, get(panoview.fovmax));
-	tween(view.architectural, 0.0, distance(1.0, 0.45));
-	tween(view.pannini, 0.0, distance(1.0, 0.45), easeOutQuad, if(panniniViewActivated,restoreViewFromPannini();););
-	tween(view.vlookat, get(panoview.v), distance(90, 0.45));
-	tween(view.fov, get(panoview.fov), distance(50, 0.45));
-	tween(view.fisheye, 0.0, distance(1.0, 0.45),
-		set(view.stereographic,false);
-	);
-</action>
-
-<krpano normalViewActivated="true" />
-<action name="stopSetViewTweens">
-	stoptween(view.fov);
-	stoptween(view.vlookat);
-	stoptween(view.fisheye);
-	stoptween(view.architectural);
-	stoptween(view.pannini);
-</action>
 
 <action name="setViewArchitectural">
 	if(normalViewActivated,stopSetViewTweens(););
@@ -1383,18 +1396,5 @@
 	);
 	tween(view.fov, get(panoview.fov), distance(50, 0.45));
 </action>
-
-  <action name="enableGyroscope">
-    changeGyroscopeState(true);
-  </action>
-  <action name="disableGyroscope">
-    changeGyroscopeState(false);
-  </action>
-
-
-  <!-- FLOORPLAN -->
-  <action name="hideFloorplan">set(tour_displayfloorplan, false);events.dispatch(onhidetourfloorplan);</action>
-  <action name="showFloorplan">set(tour_displayfloorplan, true); events.dispatch(onshowtourfloorplan);</action>
-
 
 </krpano>
